@@ -140,6 +140,11 @@ impl AgentConnector {
     pub async fn connect(
         params: ConnectParams
     ) -> Result<AgentConnection> {
+        // Rustls > 0.22 requires setting the crypto provider if we have multiple
+        // or to explicitly install the default. We install ring's default since we
+        // enabled it in features. Ignore error if already installed.
+        let _ = tokio_rustls::rustls::crypto::ring::default_provider().install_default();
+
         // Build the root certificate store
         let root_cert_store = build_root_cert_store()?;
 
