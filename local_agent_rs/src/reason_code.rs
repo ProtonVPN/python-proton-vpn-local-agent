@@ -1,9 +1,9 @@
 // -----------------------------------------------------------------------------
 // Copyright (c) 2024 Proton AG
 // -----------------------------------------------------------------------------
-/// Represents the reason for a status message.
+//! Represents the reason for a status message.
+//! The reason code is used to indicate why a connection is jailed.
 
-/// The reason code is used to indicate why a connection is jailed.
 pub const REASON_CODE_UNKNOWN: i32 = 0;
 pub const REASON_CODE_GUEST_SESSION: i32 = 86100;
 pub const REASON_CODE_RESTRICTED_SERVER: i32 = 86104;

@@ -122,7 +122,7 @@ impl log::Log for Logger {
                         let filename = filename.to_string();
                         rust_info.set_item(
                             "name",
-                            format!("{LOG_NAME}/{}", filename),
+                            format!("{LOG_NAME}/{filename}"),
                         )?;
                     }
                 }
@@ -153,7 +153,7 @@ impl log::Log for Logger {
 
         match result {
             Ok(_) => (),
-            Err(error) => eprintln!("Failure in logger: {}", error),
+            Err(error) => eprintln!("Failure in logger: {error}"),
         }
     }
 

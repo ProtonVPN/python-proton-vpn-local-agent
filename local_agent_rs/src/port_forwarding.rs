@@ -158,8 +158,7 @@ impl PortForwardingTransport for NetworkTransport {
         if bytes_read != BYTE_SIZE {
             return Err(Error::PortForwarding(format!(
                 "Protocol error incorrect number of bytes returned in \
-                         nat-pmp response {}",
-                bytes_read
+                         nat-pmp response {bytes_read}"
             )));
         }
 

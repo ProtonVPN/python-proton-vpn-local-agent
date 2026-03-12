@@ -17,7 +17,7 @@ impl State {
     // This method is used to convert the object to a string for easier
     /// debugging in Python.
     fn __str__(&self) -> PyResult<String> {
-        Ok(format!("{:?}", self))
+        Ok(format!("{self:?}"))
     }
 }
 

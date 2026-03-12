@@ -1,3 +1,12 @@
+version: 1.6.1
+time: 2026/03/12 13:07
+author: Luke Titley
+email: luke.titley@proton.ch
+urgency: low
+stability: unstable
+description:
+- "fix: Linting errors"
+---
 version: 1.6.0
 time: 2025/09/29 14:38
 author: Luke Titley
