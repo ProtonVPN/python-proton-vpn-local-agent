@@ -41,6 +41,8 @@ pub enum Error {
     BincodeError(#[from] bincode::Error),
     #[error("Expired certificate: {0}")]
     ExpiredCertificate(String),
+    #[error("Certificate not yet valid: {0}")]
+    NotYetValidCertificate(String),
     #[error("Unable to parse certificate")]
     UnableToParseCertificate,
 }

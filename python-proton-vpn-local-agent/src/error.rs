@@ -4,7 +4,7 @@
 use local_agent_rs as la;
 
 use crate::{
-    APIError, ExpiredCertificateError, LocalAgentError, PolicyAPIError,
+    APIError, ExpiredCertificateError, NotYetValidCertificateError, LocalAgentError, PolicyAPIError,
     SyntaxAPIError,
 };
 use pyo3::exceptions::PyTimeoutError;
@@ -45,6 +45,8 @@ impl std::convert::From<Error> for PyErr {
         match err {
             Error::LocalAgent(la::Error::ExpiredCertificate(e)) =>
                 ExpiredCertificateError::new_err(e.to_string()),
+            Error::LocalAgent(la::Error::NotYetValidCertificate(e)) =>
+                NotYetValidCertificateError::new_err(e.to_string()),
             Error::LocalAgent(la::Error::Tokio(e))
                 if e.kind() == ErrorKind::TimedOut
                     || e.kind() == ErrorKind::BrokenPipe =>
